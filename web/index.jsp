@@ -11,7 +11,31 @@
     <title>Simple Java Web App Demo</title>
   </head>
   <body>
-    <h1>Simple Java Web App Demo</h1>
+    <h1>Accueil</h1>
+
+
+    <h2>QUIZZ</h2>
+    <p>Pour accèder au quizz appuyer <a href="SimpleServlet"> ici</a></p>
+
+
+    <h2>ZONE D'ECHANGES</h2>
+    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+
+    <h2>GALLERIE DE CARTE</h2>
+    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+
+    <h2>MAGASIN</h2>
+    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+
+    <h2>PROFIL</h2>
+    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+
+    <h2>ESPACE D'AMIS</h2>
+    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+
+
+
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <h2>Example #1 - Generate website using servlet</h2>
     <p>To invoke a simple Java servlet click <a href="SimpleServlet">here</a></p>
     <h2>Example #2 - Pass data to servlet</h2>
