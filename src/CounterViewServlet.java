@@ -27,7 +27,7 @@ public class CounterViewServlet extends HttpServlet {
             writer.println("<!DOCTYPE html><html>");
             writer.println("<head>");
             writer.println("<meta charset=\"UTF-8\" />");
-            writer.println("<title>CounterViewServlet using doGet() to view counter value</title>");  
+            writer.println("<title>CounterViewServlet using doGet() to view counter value</title>");
             writer.println("</head>");
             writer.println("<body>");
 

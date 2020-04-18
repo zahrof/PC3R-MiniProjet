@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "CounterServlet")
 public class CounterServlet extends HttpServlet {
 
+    //le conteneur invoque la méthode init() du servlet.
+    //uniquement quand il est chargé pour la 1ère fois.
+    //on peut passer des arguments pour configurer le servlet.
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
