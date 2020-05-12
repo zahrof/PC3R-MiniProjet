@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.pokemontcg:pokemontcg-io-java-sdk:1.1.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/pokemontcg/pokemontcg-io-java-sdk/1.1.2/pokemontcg-io-java-sdk-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/pokemontcg/pokemontcg-io-java-sdk/1.1.2/pokemontcg-io-java-sdk-1.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/pokemontcg/pokemontcg-io-java-sdk/1.1.2/pokemontcg-io-java-sdk-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

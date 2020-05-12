@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Entries.Utilisateur" %>
+<%@ page import="jdk.nashorn.internal.ir.debug.JSONWriter" %><%--
   Created by IntelliJ IDEA.
   User: Marek
   Date: 13/04/2017
@@ -8,48 +9,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>Simple Java Web App Demo</title>
+    <title>Pokemon Quizz</title>
   </head>
   <body>
-    <h1>Accueil</h1>
 
 
-    <h2>QUIZZ</h2>
-    <p>Pour accèder au quizz appuyer <a href="SimpleServlet"> ici</a></p>
+  <h1>Register</h1>
+  <form action="ServletIdentification" method="get">
+      <table>
+          <tr>
+              <td>adresse mail:</td>
+              <td><input type="email" name="mail" /></td>
+          <tr>
+              <td>Password:</td>
+              <td><input type="password" name="pw" /></td>
+          <tr>
+              <td></td>
+              <td><input type="submit" value="login" /></td>
+          </tr>
+      </table>
+  </form>
 
 
-    <h2>ZONE D'ECHANGES</h2>
-    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
+  <h2>Not already a member? </h2>
+  <form action="ServletIdentification" method="post">
+      <table>
+          <tr>
+              <td>Name:</td>
+              <td><input type="text" name="name-register" /></td>
+          <tr>
+              <td>Surname:</td>
+              <td><input type="text" name="surname-register" /></td>
+          <tr>
+              <td>Birthday:</td>
+              <td><input type="date" name="birthDay-register" /></td>
+          <tr>
+              <td>Mail:</td>
+              <td><input type="email" name="mail-register" /></td>
+          <tr>
+              <td>Password:</td>
+              <td><input type="password" name="password-register" /></td>
+          <tr>
+              <td></td>
+              <td><input type="submit" value="register" /></td>
+          </tr>
+      </table>
+  </form>
 
-    <h2>GALLERIE DE CARTE</h2>
-    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
-
-    <h2>MAGASIN</h2>
-    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
-
-    <h2>PROFIL</h2>
-    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
-
-    <h2>ESPACE D'AMIS</h2>
-    <p>Pour accèder à la zone d'échanges appuyer  <a href="SimpleServlet"> ici</a></p>
-
-
-
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <h2>Example #1 - Generate website using servlet</h2>
-    <p>To invoke a simple Java servlet click <a href="SimpleServlet">here</a></p>
-    <h2>Example #2 - Pass data to servlet</h2>
-    <p>To invoke Java servlet and pass data to it fill the form below and hit the "Submit" button</p>
-    <br/>
-    <form action="FormServlet" method="POST">
-      First Name: <input type="text" name="first_name">
-      <br />
-      Last Name: <input type="text" name="last_name" />
-      <input type="submit" value="Submit" />
-    </form>
-    <h2>Example #3 - Access website with visitor count tracking</h2>
-    <p>To invoke the counting servlet click <a href="CounterServlet">here</a></p>
-    <h2>Example #4 - Show total number of visits</h2>
-    <p>To invoke the servlet click <a href="CounterViewServlet">here</a></p>
   </body>
 </html>

@@ -4,44 +4,83 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
-        <servlet-name>SimpleServlet</servlet-name>
-        <servlet-class>SimpleServlet</servlet-class>
-    </servlet>
 
+   <!--///////////    IDENTIFICATION    ///////////-->
     <servlet-mapping>
-        <servlet-name>SimpleServlet</servlet-name>
-        <url-pattern>/SimpleServlet</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>FormServlet</servlet-name>
-        <servlet-class>FormServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>FormServlet</servlet-name>
-        <url-pattern>/FormServlet</url-pattern>
+        <servlet-name>ServletIdentification</servlet-name>
+        <url-pattern>/Identification</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>CounterServlet</servlet-name>
-        <servlet-class>CounterServlet</servlet-class>
+        <servlet-name>ServletIdentification</servlet-name>
+        <servlet-class>Services.Identification</servlet-class>
     </servlet>
 
+    <!--//////////    GESTION UTILISATEUR    ////////////////-->
+
     <servlet-mapping>
-        <servlet-name>CounterServlet</servlet-name>
-        <url-pattern>/CounterServlet</url-pattern>
+        <servlet-name>GestionUtilisateur</servlet-name>
+        <url-pattern>/GestionUtilisateur</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>CounterViewServlet</servlet-name>
-        <servlet-class>CounterViewServlet</servlet-class>
+        <servlet-name>GestionUtilisateur</servlet-name>
+        <servlet-class>Services.GestionUtilisateur</servlet-class>
     </servlet>
 
+    <!--//////////////  GESTION CARTES   /////////////////-->
+
     <servlet-mapping>
-        <servlet-name>CounterViewServlet</servlet-name>
-        <url-pattern>/CounterViewServlet</url-pattern>
+        <servlet-name>GestionCartesServlet</servlet-name>
+        <url-pattern>/GestionCartes</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GestionCartesServlet</servlet-name>
+        <servlet-class>Services.GestionCartes</servlet-class>
+    </servlet>
+
+
+    <!--//////////    GESTION AMIS   ////////////////////-->
+
+    <servlet-mapping>
+        <servlet-name>GestionAmis</servlet-name>
+        <url-pattern>/GestionAmis</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GestionAmis</servlet-name>
+        <servlet-class>Services.GestionAmis</servlet-class>
+    </servlet>
+
+
+    <!--/////////////// GESTION QUIZZ   ///////////////////-->
+
+    <servlet-mapping>
+        <servlet-name>GestionQuizzServlet</servlet-name>
+        <url-pattern>/GestionQuizz</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GestionQuizzServlet</servlet-name>
+        <servlet-class>Services.GestionQuizz</servlet-class>
+    </servlet>
+
+    <!--/////////////// GESTION ECHANGE    ///////////////////-->
+
+    <servlet-mapping>
+        <servlet-name>GestionEchange</servlet-name>
+        <url-pattern>/CreationEchange</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GestionEchange</servlet-name>
+        <servlet-class>Services.GestionEchange</servlet-class>
+    </servlet>
+
+
+
+
+
+
 </web-app>
