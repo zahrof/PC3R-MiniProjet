@@ -1,14 +1,15 @@
 package Entries;
 
+import ConnectionClases.ConnectionManager;
 import io.pokemontcg.model.Card;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class Carte {
 
 
-
-    private int idCard;
     /**
      * Le code de reference de la carte.
      */
@@ -70,12 +71,16 @@ public class Carte {
         this.points = points;
     }
 
-    public int getIdCard() {
-        return idCard;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carte carte = (Carte) o;
+        return Objects.equals(codeCarte, carte.codeCarte) ;
     }
 
-    public void setIdCard(int idCard) {
-        this.idCard = idCard;
-    }
+
+
 
 }

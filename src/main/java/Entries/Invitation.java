@@ -1,11 +1,7 @@
 package Entries;
 
 public class Invitation {
-    public enum Status {
-        en_attente,
-        accepte,
-        refuse,
-    }
+
 
     private Utilisateur emetteur;
     private Utilisateur recepteur;

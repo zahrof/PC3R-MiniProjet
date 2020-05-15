@@ -51,12 +51,12 @@ public class GestionAmis extends HttpServlet {
      * @param response
      * @throws IOException
      */
-    /*public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String state = request.getParameter("state");
         response.setContentType("application/json");
 
         if(state.equals("amisUtilisateurCourant")) {
-            response.getWriter().write(gson.toJson(amis));
+            response.getWriter().write(gson.toJson(utilisateurCourant.getAmis()));
         }
         if(state.equals("rechercherUtilisateur")) {
             String moyenRecherche = request.getParameter("moyenRecherche");
@@ -89,7 +89,7 @@ public class GestionAmis extends HttpServlet {
             else response.getWriter().write(gson.toJson(invitations));
         }
 
-    }*/
+    }
 
 
     /**
@@ -129,7 +129,7 @@ public class GestionAmis extends HttpServlet {
         }
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String state = request.getParameter("state");
         response.setContentType("application/json");
         if(state.equals("repondreInvitation")){
@@ -147,15 +147,6 @@ public class GestionAmis extends HttpServlet {
                 }
             }else response.getWriter().write(gson.toJson(new Reponses(false,
                     "Désolé, vous etes pas le recepteur de cette invitation ")));
-        }
-        if(state.equals("amisUtilisateurCourant")) {
-            response.getWriter().write(gson.toJson(utilisateurCourant.getAmis()));
-        }
-
-        if(state.equals("recupererInvitationsUtilisateur")){
-
-            if(invitations.isEmpty())response.getWriter().write(gson.toJson(null));
-            else response.getWriter().write(gson.toJson(invitations));
         }
     }
 
@@ -301,10 +292,11 @@ public class GestionAmis extends HttpServlet {
             stmt=currentCon.createStatement();
             resultatsInvitations = stmt.executeQuery(query);
             boolean more = resultatsInvitations.next();
-            if(more) {
+            while(more) {
                 invitations.add(new Invitation(recupererInfoAmi( resultatsInvitations.getInt("sender")),
                         recupererInfoAmi(resultatsInvitations.getInt("receptor")), resultatsInvitations.getString("status"),
                         resultatsInvitations.getString("date")));
+                more = resultatsInvitations.next();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

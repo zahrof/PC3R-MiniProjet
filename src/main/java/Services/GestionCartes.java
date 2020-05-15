@@ -64,7 +64,7 @@ public class GestionCartes extends HttpServlet {
         if(state.equals("cartesUtilisateurPossede")){
             // On recupere toutes les cartes de l'api
             Optional<Cards> cards = PokemonTcg.cards().all();
-            Set<Card> cartesUtilisateurPossede = cartesUtilisateurPossede(cards, utilisateurCourant.getLogin());
+            Set<Card> cartesUtilisateurPossede = cartesUtilisateurPossede( utilisateurCourant.getLogin());
             if (cartesUtilisateurPossede.isEmpty()) System.out.println("Ensemble vide");
             response.getWriter().write(gson.toJson(cartesUtilisateurPossede));
         }
@@ -143,7 +143,7 @@ public class GestionCartes extends HttpServlet {
 
     }
 
-    private Set<Card> cartesUtilisateurPossede(Optional<Cards> cards, int login) {
+    private Set<Card> cartesUtilisateurPossede(int login) {
         Set<Card> cartesUtilisateurPossede = new HashSet<>();
         String query = "select cardCode from QuizzApp.User INNER JOIN CardOwners using (login) where login='"+login+"'";
         try {
@@ -165,7 +165,7 @@ public class GestionCartes extends HttpServlet {
 
     private Set<Card> tri(Optional<Cards> cartesApi, int loginUtilisateurCourant) {
         Set<Card> cartesUtilisateurPossedePas = new HashSet<>();
-        Set<Card> cartesUtilisateurPossede = cartesUtilisateurPossede(cartesApi,loginUtilisateurCourant);
+        Set<Card> cartesUtilisateurPossede = cartesUtilisateurPossede(loginUtilisateurCourant);
             boolean possede=false;
             // pour chaque carte dans l'api
             for (int i=0; i < cartesApi.get().getCards().size(); i++) {
@@ -188,6 +188,33 @@ public class GestionCartes extends HttpServlet {
         }
         return contient;
 
+    }
+
+    public static Carte recupererCarteInfo(String codeCarte) {
+        Carte res = null;
+        String query = "select * from QuizzApp.Card where cardCode='"+codeCarte+"'";
+        Connection currentCon = null;
+        ResultSet rs = null;
+        Statement stmt;
+
+        try {
+            //connecto to DB
+            currentCon = ConnectionManager.getConnection();
+            stmt=currentCon.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while(rs.next()) {
+                return new Carte(codeCarte,rs.getInt("cost"), rs.getInt("points"),
+                        PokemonTcg.cards().find(codeCarte).get().getCard());
+            }
+        } catch (SQLException throwables) {
+            System.out.println("Problème avec la requete sql");
+            throwables.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Problème avec l'API pokemon");
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

@@ -1,0 +1,11 @@
+{
+  "name": "SimpleJavaWebApp",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "react": "^16.13.1"
+  }
+}
